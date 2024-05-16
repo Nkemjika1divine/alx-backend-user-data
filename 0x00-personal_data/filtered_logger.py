@@ -10,8 +10,8 @@ PII_FIELDS = ('name', 'email', 'phone', 'ssn', 'password')
 
 
 def filter_datum(fields: List[str],
-        redaction: str, message: str,
-        separator: str) -> str:
+                    redaction: str, message: str,
+                    separator: str) -> str:
     """returns the log message cut out"""
     for field in fields:
         pattern = re.compile(fr'{re.escape(field)}=.*?{re.escape(separator)}')
@@ -80,4 +80,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
