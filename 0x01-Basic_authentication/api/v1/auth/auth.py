@@ -12,15 +12,9 @@ class Auth:
         if path is None or excluded_paths is None:
             return True
         
-        if path in excluded_paths:
-            return False
-        else:
-            path_with_slash = path + '/'
-            if path_with_slash in excluded_paths:
-                return False
-            else:
-                return True
-        return False
+        if path[-1] != '/':
+            path += '/'
+        return not [n for n in excluded_paths if fnmatch(path, n)]
     
     def authorization_header(self, request=None) -> str:
         """authorization_header method"""
