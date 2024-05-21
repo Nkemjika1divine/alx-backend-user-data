@@ -22,8 +22,7 @@ class Auth:
                 for paths in excluded_paths:
                     if paths[-1] == '*':
                         count = 0
-                        paths_copy = ""
-                        for i in paths:
+                        for _ in paths:
                             count += 1
                            if path[0:count - 1] == paths[0:-1]:
                                return False
