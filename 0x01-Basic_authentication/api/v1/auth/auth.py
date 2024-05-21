@@ -19,16 +19,15 @@ class Auth:
             if path_with_slash in excluded_paths:
                 return False
             else:
-                """for paths in excluded_paths:
+                for paths in excluded_paths:
                     if paths[-1] == '*':
                         count = 0
                         for _ in paths:
-                                 count += 1
-                           if path[0:count - 1] == paths[0:-1]:
-                               return False
-                           else:
-                               return True"""
-                return True
+                            count += 1
+                        if path[0:count - 1] == paths[0:-1]:
+                            return False
+                        else:
+                            return True
     
     def authorization_header(self, request=None) -> str:
         """authorization_header method"""
