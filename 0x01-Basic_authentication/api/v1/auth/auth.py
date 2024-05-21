@@ -26,8 +26,7 @@ class Auth:
                             count += 1
                         if path[0:count - 1] == paths[0:-1]:
                             return False
-                        else:
-                            return True
+        return True
 
     def authorization_header(self, request=None) -> str:
         """authorization_header method"""
