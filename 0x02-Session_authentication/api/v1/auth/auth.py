@@ -12,7 +12,7 @@ class Auth:
         """require_auth method"""
         if path is None or excluded_paths is None:
             return True
-        
+
         if path in excluded_paths:
             return False
         else:
