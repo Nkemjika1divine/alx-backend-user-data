@@ -27,14 +27,14 @@ class DB:
             DBSession = sessionmaker(self._engine)
             self.__session = DBSession()
         return self.__session
-    
+
     def add_user(self, email: str, hashed_password: str) -> User:
         """Adds a User to the database"""
         user = User(email=email, hashed_password=hashed_password)
         self._session.add(user)
         self._session.commit()
         return user
-    
+
     def find_user_by(self, **kwargs) -> User:
         """Returns users based on certain criteria"""
         try:
@@ -51,5 +51,4 @@ class DB:
         for key, value in kwargs.items():
             if not hasattr(User, key):
                 raise ValueError()
-            setattr(user, key, value)
-        
+            setattr(user, key, value)        
