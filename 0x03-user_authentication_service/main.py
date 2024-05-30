@@ -8,7 +8,7 @@ NEW_PASSWD = "t4rt1fl3tt3"
 
 
 def register_user(email: str, password: str) -> None:
-    """doc doc doc"""
+    """Regisyering a user"""
     response = requests.post(
         f"{BASE_URL}/users", data={"email": email, "password": password}
     )
@@ -17,7 +17,7 @@ def register_user(email: str, password: str) -> None:
 
 
 def log_in_wrong_password(email: str, password: str) -> None:
-    """doc doc doc"""
+    """entering a wrong password"""
     response = requests.post(
         f"{BASE_URL}/sessions", data={"email": email, "password": password}
     )
@@ -25,7 +25,7 @@ def log_in_wrong_password(email: str, password: str) -> None:
 
 
 def log_in(email: str, password: str) -> str:
-    """doc doc doc"""
+    """logging in"""
     response = requests.post(
         f"{BASE_URL}/sessions", data={"email": email, "password": password}
     )
@@ -35,13 +35,13 @@ def log_in(email: str, password: str) -> str:
 
 
 def profile_unlogged() -> None:
-    """doc doc doc"""
+    """checking profile without login"""
     response = requests.get(f"{BASE_URL}/profile")
     assert response.status_code == 403
 
 
 def profile_logged(session_id: str) -> None:
-    """doc doc doc"""
+    """checking profile while logged in"""
     response = requests.get(
         f"{BASE_URL}/profile",
         cookies={"session_id": session_id}
@@ -51,7 +51,7 @@ def profile_logged(session_id: str) -> None:
 
 
 def log_out(session_id: str) -> None:
-    """doc doc doc"""
+    """logging out"""
     response = requests.delete(
         f"{BASE_URL}/sessions", cookies={"session_id": session_id}
     )
@@ -60,7 +60,7 @@ def log_out(session_id: str) -> None:
 
 
 def reset_password_token(email: str) -> str:
-    """doc doc doc"""
+    """get reset password token"""
     response = requests.post(
         f"{BASE_URL}/reset_password",
         data={"email": email}
@@ -70,7 +70,7 @@ def reset_password_token(email: str) -> str:
 
 
 def update_password(email: str, reset_token: str, new_password: str) -> None:
-    """doc doc doc"""
+    """chamging password"""
     response = requests.put(
         f"{BASE_URL}/reset_password",
         data={
